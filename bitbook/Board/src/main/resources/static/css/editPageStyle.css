@@ -1,0 +1,344 @@
+@charset "UTF-8";
+
+
+/*   BoardGroup Edit Style      */
+
+
+/* 위치지정하는 최상위 Wrapper  
+    좌우지정하고 싶으면 left, 넓이 지정 : width */
+.editBoardGroupPanelWrapper{
+	top: 0px;
+    left: 299px;
+    width: 385px;
+    height: 100%;
+    display: flex;
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    margin: 0px;
+    padding: 0px;
+    z-index: 1000;
+    /* display: none; */
+    
+}
+
+
+/* padding과 margin이 필요한 부분에선 이부분을 수정 */
+.editBoardGroupPanel{
+	display: flex;
+    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex: 1 1 0%;
+    margin: 0px;
+    padding: 0px;
+}
+
+/* PAGE      <-      에 해당하는 영역 지정 */
+.editBoardGroupPanel .boardGroupPanelHeader{
+	height: 40px;
+    display: flex;
+    align-items: center;
+    -webkit-box-align: center;
+    margin: 0px;
+    padding: 24px;
+    border-bottom: 1px solid rgb(230, 236, 241);
+}
+
+
+/*  PAGE   에 해당하는 글자 영역 지정 */
+.editBoardGroupPanel .boardGroupHeaderTitle{
+	color: rgb(116, 129, 141);
+    font-size: 12px;
+    font-family: Roboto, sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    flex: 1 1 0%;
+}
+
+/*   <-   에 해당하는 영역과 컬러 지정*/
+.editBoardGroupPanel .boardGroupPanelHeaderClose{
+	color: rgb(36, 42, 49);
+    cursor: pointer;
+    display: block;
+    margin: 0px 0px 0px 16px;
+    padding: 0px;
+}
+
+/* <-  아이콘에 대해 크기 지정 */
+.editBoardGroupPanel .boardGroupPanelHeaderClose .icon_medium{
+	width: 18px;
+    height: 18px;
+    vertical-align: middle;
+}
+
+.editBoardGroupPanelWrapper .boardGroupPanelBody{
+	display: flex;
+    overflow-x: hidden;
+    overflow-y: overlay;
+    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex: 1 1 0%;
+    margin: 0px;
+    padding: 24px;
+}
+
+/* form tag*/
+.boardGroupPanelBody .boardGroupDataForm{ 
+	display: flex;
+    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex: 1 1 auto;
+}
+
+/* form태그 밑 요소 */
+.boardGroupPanelBody .boardGroupDataForm .formGroupElement{
+	display: block;
+    text-align: left;
+    margin: 0px 0px 24px;
+    padding: 0px;
+}
+
+/* input - Title 부분 영역 */
+.boardGroupPanelBody .boardGroupDataForm .formGroupElement .bottomFlexWrapper{
+	display: flex;
+    align-items: center;
+    justify-content: space-between;
+    -webkit-box-pack: justify;
+    -webkit-box-align: center;
+    margin: 0px 0px 8px;
+    padding: 0px;
+}
+
+.boardGroupPanelBody .boardGroupDataForm .formGroupElement .bottomFlexWrapper .textFamilyGreyBase{
+	color: rgb(157, 170, 182);
+    font-size: 12px;
+    font-family: Roboto, sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+
+/* inputWrapper */
+.boardGroupPanelBody .boardGroupDataForm .formGroupElement .formInputWrapper{
+	width: 100%;
+    display: flex;
+    font-size: 16px;
+    box-sizing: border-box;
+    font-weight: 400;
+    line-height: 1.625;
+    border-width: 1px;
+    border-style: solid;
+    border-image: initial;
+    margin: 0px;
+    outline: none;
+    padding: 0px;
+    background: rgb(255, 255, 255);
+    border-color: rgb(211, 220, 228);
+    border-radius: 3px;
+}
+
+
+/* input size */
+.boardGroupPanelBody .boardGroupDataForm .formGroupElement .formInputWrapper .formInputInnerSizer{
+	display: block;
+    flex: 1 1 0%;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+/* input 실제 사이즈, 색상 등 설정*/
+.boardGroupPanelBody .boardGroupDataForm .formGroupElement .formInputWrapper .formInputInnerSizer .inputInnerMedium{
+	color: rgb(36, 42, 49);
+    width: 100%;
+    cursor: inherit;
+    height: 38px;
+    resize: none;
+    box-sizing: border-box;
+    text-align: left;
+    font: inherit;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+    margin: 0px;
+    outline: none;
+    padding: 0px 8px;
+    background: transparent;
+    border-radius: 3px;
+}
+
+/* cancel, save 버튼 영역  */
+.boardGroupPanelFooter {
+	display: block;
+    margin: 0px;
+    padding: 24px 0px;
+    border-top: 1px solid rgb(230, 236, 241);
+}
+
+/* 버튼's*/
+.boardGroupPanelFooter .actions{
+	display: flex;
+    margin: 0px;
+    padding: 0px;
+}
+
+/* Gray 버튼 = actionsSecondary */
+.boardGroupPanelFooter .actions .actionsSecondary{
+	display: block;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+/* Gray Base 색의 버튼 */
+.boardGroupPanelFooter .actions .actionsSecondary .buttonMediumGrayBase{
+	color: rgb(116, 129, 141);
+    cursor: pointer;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    line-height: 1em;
+    white-space: nowrap;
+    justify-content: center;
+    -webkit-box-pack: center;
+    background-color: rgb(230, 236, 241);
+    -webkit-box-align: center;
+    border-width: 1px;
+    border-style: solid;
+    border-image: initial;
+    outline: none;
+    padding: 0px 24px;
+    border-color: transparent;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: all 250ms ease-out 0s;
+}
+
+/* 회색 버튼 글자 색 */
+.boardGroupPanelFooter .actions .actionsSecondary .textFamilyButtonGrayBase{
+	font-size: 16px;
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+    line-height: 1em;
+}
+
+/* 퍼런색 버튼 = actionPrimary */
+.boardGroupPanelFooter .actions .actionPrimary{
+	display: flex;
+    justify-content: flex-end;
+    -webkit-box-pack: end;
+    flex: 1 1 0%;
+    margin: 0px;
+    padding: 0px;
+}
+
+/* blue Base 색의 버튼 */
+.boardGroupPanelFooter .actions .actionPrimary .buttonMediumBlueBase{
+	color: rgb(255, 255, 255);
+    cursor: pointer;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    line-height: 1em;
+    white-space: nowrap;
+    justify-content: center;
+    -webkit-box-pack: center;
+    background-color: rgb(56, 132, 255);
+    -webkit-box-align: center;
+    border-width: 1px;
+    border-style: solid;
+    border-image: initial;
+    outline: none;
+    padding: 0px 24px;
+    border-color: transparent;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: all 250ms ease-out 0s;
+}
+
+/* 퍼런 버튼 글자 색 */
+.boardGroupPanelFooter .actions .actionPrimary .textFamilyButtonBlueBase{
+	font-size: 16px;
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+    line-height: 1em;
+}
+
+/* 추가 메뉴 영역 :크기 */
+.boardGroupPanelFooter .pagePanelMenu{
+	display: flex;
+    min-width: 220px;
+    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex: 1 1 0%;
+    margin: 0px -24px;
+    padding: 0px;
+    overflow: hidden;
+}
+
+
+
+./* 아이템 영역지정  (new page, import ... 등) */
+.boardGroupPanelFooter .pagePanelMenu .pageMenuItems{
+	display: block;
+    overflow-x: hidden;
+    overflow-y: overlay;
+    flex: 1 1 0%;
+    margin: 0px;
+    padding: 12px 0px;
+}
+
+
+/* 메뉴 아이템 요소  첫번쨰 요소*/
+.boardGroupPanelFooter .pagePanelMenu .pageMenuItems .menuItemInline:first-child{
+	margin-top:0px;
+}
+/* 메뉴 아이템 요소  */
+.boardGroupPanelFooter .pagePanelMenu .pageMenuItems .menuItemInline{
+	color: rgb(36, 42, 49);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    -webkit-box-align: center;
+    margin: 0px;
+    padding: 4px 24px;
+    text-decoration: none;
+}
+
+.boardGroupPanelFooter .pagePanelMenu .pageMenuItems .menuItemInline .menuItemIcon{
+	color: rgb(157, 170, 182);
+    display: inline-flex;
+    font-size: 18px;
+    margin: 0px 8px 0px 0px;
+    padding: 0px;
+}
+
+.boardGroupPanelFooter .pagePanelMenu .pageMenuItems .menuItemInline .menuItemIcon .iconMiddle{
+	width: 1em;
+    height: 1em;
+    vertical-align: middle;
+}
+
+.boardGroupPanelFooter .pagePanelMenu .pageMenuItems .menuItemInline .menuItemContent{
+	display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+.boardGroupPanelFooter .pagePanelMenu .pageMenuItems .menuItemInline .menuItemContent .menuItemContentTextFamily{
+	font-size: 14px;
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+    line-height: 1.5;
+}

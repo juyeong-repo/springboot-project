@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+   xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+<meta name="viewport"
+   content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<link th:href="@{/css/styles.css}" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+<script   src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+<script   src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"   crossorigin="anonymous"></script>
+<script   src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+<script   src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+<script   src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript">
+function pageLoad(value){
+
+   var val = value;
+   alert("CHECK1 : " + val);
+   
+   switch(val){
+      case 'Notice':
+      location.href="/main/notice/list";
+      break;
+   
+      case 'Chart':
+      location.href="/Chart";
+      break;
+   
+      case 'inquiry':
+      $("#content").load("/inquiry");
+      break;
+   
+      case 'inquiryWrite': 
+      $("#content").load("/inquiry/write");
+      break;
+      
+      case 'write':
+      
+      alert("");
+      $("#content").load(/inquiry);
+      break;
+      
+      default :
+      alert("잘못된 접근입니다. : " );
+      
+      }
+      
+   }
+</script>
+
+</head>
+<body class="sb-nav-fixed">
+
+   <div th:insert="/board/fragments/header.html :: mainHeader"></div>
+
+   <div id="layoutSidenav">
+
+      <div th:insert="/board/fragments/common.html :: mainSide"></div>
+
+      <div id="layoutSidenav_content">
+         <main>
+            <div id="content" class="container-fluid">
+            <!-- 검색 바 -->
+      <div class="input-group">
+         <div class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+      <!-- <th:block th:replace="/board/fragments/common :: search"> -->
+      <div th:replace="/board/fragments/common.html :: search"></div>
+      <!-- </th:block> -->
+         </div>
+      </div> <!-- 검색바를 감싸는 div 추가-->
+
+
+
+
+
+
+      <th:block layout:fragment="content">
+         <div class="table-responsive clearfix"></div>
+         <table class="table table-hover">
+            <thead>
+               <tr>
+                  <th>Notice</th>
+                  <th>제목</th>
+                  <th>작성자</th>
+                  <th>등록일</th>
+                  <!-- <th>조회 수</th> -->
+               </tr>
+            </thead>
+            <tbody>
+               <tr th:if="${not #lists.isEmpty( boardList )}"
+                  th:each="row : ${boardList}">
+                  <td scope="row"
+                     th:text="${#strings.equals( row.noticeYn, 'Y' ) ? '공지' : row.idx}"></td>
+                  <td class="text-left"><a
+                     th:href="|@{/board/view.do}${params.makeQueryString(params.currentPageNo)}&idx=${row.idx}|"
+                     th:text="${row.title}"></a></td>
+                  <td th:text="${row.writer}"></td>
+                  <td th:text="${#temporals.format( row.insertTime, 'yyyy-MM-dd' )}"></td>
+                  <!-- <td th:text="${row.viewCnt}"></td> -->
+               </tr>
+               <tr th:unless="${not #lists.isEmpty( boardList )}">
+                  <td colspan="5">조회된 결과가 없습니다.</td>
+               </tr>
+            </tbody>
+         </table>
+
+         <div class="btn_wrap text-right">
+            <a th:href="@{/board/write.do}"
+               class="btn btn-primary waves-effect waves-light">Write</a>
+         </div>
+         
+            <th:block layout:fragment="pagination"> <!--paging에서 바꿈  -->
+               <nav th:replace="board/fragments/common.html :: pagination"></nav>
+            </th:block>
+   
+
+</div>
+
+
+
+<th:block layout:fragment="script">
+   <script th:inline="javascript" type="text/javascript">
+      /*<![CDATA[*/
+
+      function movePage(uri, queryString) {
+         location.href = uri + queryString;
+
+      }
+
+      function searchBoard(form) {
+         /*[- 드롭다운이 아닌 메인 검색 키워드로 검색했을 때 -]*/
+         if (isEmpty(form) == true) {
+            var searchKeyword = document
+                  .getElementById("mainSearchKeyword");
+            if (isEmpty(searchKeyword.value) == true) {
+               alert("키워드를 입력해 주세요.");
+               console.log("왔니?");
+               searchKeyword.focus();
+               return false;
+            }
+
+            form = document.getElementById("searchForm");
+            form.searchKeyword.value = searchKeyword.value;
+            form.submit();
+         }
+
+         if (isEmpty(form.searchKeyword.value) == true) {
+            alert("키워드를 입력해 주세요.");
+            form.searchKeyword.focus();
+            return false;
+         }
+      }
+      /*[- end of function -]*/
+
+      /*]]>*/
+   </script>
+</th:block>
+            </div>
+             <div th:insert="/board/fragments/footer.html :: mainFooter"></div>
+         </main>
+         
+        <!--  <div th:insert="/board/fragments/footer.html :: mainFooter"></div> -->
+      </div>
+   </div>
+</body>
+</html>
