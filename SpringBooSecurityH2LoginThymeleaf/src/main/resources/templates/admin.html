@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<title>Admin  Page</title>
+</head>
+<body>
+	<h1>Current Admin Id</h1>
+	<p th:text="${currentAdminId}"></p>
+	<!-- 모델에 담은 admin 값 도출  -->
+	<h1>Admin Page</h1>
+	<p>
+		<span sec:authentication="name"></span>님 환영합니다~
+		<!-- " " 사이에 무엇을 가져올 것인지 정해줘야한다.  보안 상 모델에 담아서 위처럼하는 것보다 sec 사용하는 것이 더 낫다-->
+	</p>
+	<a th:href="@{'/'}">메인으로 이동</a>
+</body>
+</html>
