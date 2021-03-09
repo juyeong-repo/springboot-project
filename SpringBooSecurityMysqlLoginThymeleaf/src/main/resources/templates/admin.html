@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<title>Admin  Page</title>
+</head>
+<body>
+	<h1>Current Admin Id</h1>
+	<p th:text="${currentAdminId}"></p>
+	<h1>Admin Page</h1>
+	<p>
+		<span sec:authentication="name"></span>님 환영합니다~
+	</p>
+	<a th:href="@{'/'}">메인으로 이동</a>
+</body>
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,21 @@
+spring:
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    properties:
+      hibernate:
+        format_sql: true
+        
+  datasource:    url: jdbc:mysql://localhost:3306/bit?serverTimezone=UTC&characterEncoding=UTF-8
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+      
+   
+   
+   
+logging:
+  level:
+    org.hibernate.type: trace
